@@ -34,8 +34,12 @@ function findPairBirthdays(birthdays) {
     // input: list of numbers 0-364
     // output: list of numbers 0-364
     var result = [];
-    for (const day of birthdays) {
-        if (birthdays.includes(day) && !result.includes(day)) {
+    for (var index = 0; index < birthdays.length; index++) {
+        const day = birthdays[index];
+        if (
+            (birthdays.slice(0, index).includes(day) || birthdays.slice(index + 1, birthdays.length).includes(day))
+            && !result.includes(day)
+        ) {
             result.push(day);
         }
     }
@@ -72,7 +76,15 @@ function calculate() {
     return [birthdays, pairs];
 }
 
-function display(birtdays, pairs) {
+function calcMultipleTimes(times) {
+    var birthdays, pairs;
+    for (var i = 0; i < times; i++) {
+        [birthdays, pairs] = calculate();
+    }
+    display(birthdays, pairs);
+}
+
+function display(birthdays, pairs) {
     // both inputs: list of numbers 0-364
     const peopleElements = birthdays.map(birthday => {
         const element = document.createElement("div");
@@ -86,15 +98,30 @@ function display(birtdays, pairs) {
     for (const element of peopleElements) {
         peopleTag.appendChild(element);
     }
+
+    peopleCountText.innerHTML = peopleCount.toString();
+    tryCountText.innerHTML = tries.toString();
+    successCountText.innerHTML = succeses.toString();
+    const percent = Math.floor(succeses / tries * 100000) / 1000;
+    chanceText.innerHTML = percent.toString() + "%";
 }
 
 const peopleTag = document.getElementById("people");
+const peopleCountText = document.getElementById("peopleCount");
+const tryCountText = document.getElementById("tryCount");
+const successCountText = document.getElementById("successCount");
+const chanceText = document.getElementById("chance");
 
-document.getElementById("incPeople").addEventListener("click", () => {
-    updatePeople(1);
-})
-document.getElementById("decPeople").addEventListener("click", () => { updatePeople(-1); })
+document.getElementById("incPeople").addEventListener("click", () => { updatePeople(1); });
+document.getElementById("decPeople").addEventListener("click", () => { updatePeople(-1); });
+document.getElementById("test1").addEventListener("click", () => { calcMultipleTimes(1); });
+document.getElementById("test10").addEventListener("click", () => { calcMultipleTimes(10); });
+document.getElementById("test1k").addEventListener("click", () => { calcMultipleTimes(1000); });
+document.getElementById("test50k").addEventListener("click", () => { calcMultipleTimes(50000); });
 
-var peopleCount = 2;
+var peopleCount = 5;
 var tries = 0;
 var succeses = 0;
+
+const [birthdays, pairs] = calculate();
+display(birthdays, pairs);

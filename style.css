@@ -79,3 +79,16 @@ h1 {
     display: flex;
     flex-flow: row wrap;
 }
+
+.person {
+    padding: 0.7rem;
+    width: 7rem;
+    text-align: center;
+    margin: 1rem;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+}
+
+.person.success {
+    background-color: #20da20;
+}
