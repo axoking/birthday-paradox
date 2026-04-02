@@ -1,0 +1,74 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #1a1a2e;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #1a1a2e;
+}
+
+#texts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+#texts > span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.95rem;
+}
+
+#texts > span b {
+    font-weight: 700;
+}
+
+#texts > span > span {
+    font-weight: 400;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+#buttons .button {
+    display: inline-block;
+    padding: 0.5rem 1.1rem;
+    background-color: #4a6cf7;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.15s ease;
+}
+
+#buttons .button:hover {
+    background-color: #3a5ce5;
+}
+
+#buttons .button:active {
+    background-color: #2a46c8;
+}
