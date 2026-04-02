@@ -90,6 +90,11 @@ function display(birtdays, pairs) {
 
 const peopleTag = document.getElementById("people");
 
+document.getElementById("incPeople").addEventListener("click", () => {
+    updatePeople(1);
+})
+document.getElementById("decPeople").addEventListener("click", () => { updatePeople(-1); })
+
 var peopleCount = 2;
 var tries = 0;
 var succeses = 0;

@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -29,7 +31,7 @@ h1 {
     gap: 1.5rem;
 }
 
-#texts > span {
+#texts>span {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -37,11 +39,11 @@ h1 {
     font-size: 0.95rem;
 }
 
-#texts > span b {
+#texts>span b {
     font-weight: 700;
 }
 
-#texts > span > span {
+#texts>span>span {
     font-weight: 400;
 }
 
@@ -71,4 +73,9 @@ h1 {
 
 #buttons .button:active {
     background-color: #2a46c8;
+}
+
+#people {
+    display: flex;
+    flex-flow: row wrap;
 }
